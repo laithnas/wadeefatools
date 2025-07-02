@@ -14,6 +14,20 @@ node server.js
 
 Then open `http://localhost:3000` in your browser.
 
+### Quick preview via cURL
+
+You can test the optimizer without a browser by posting a DOCX resume and a job
+description string:
+
+```bash
+curl -F "resume=@myresume.docx;type=application/vnd.openxmlformats-officedocument.wordprocessingml.document" \
+     -F "jobDesc=developer python java" \
+     http://localhost:3000/optimize
+```
+
+The server responds with a JSON object containing the score before/after and the
+suggested missing keywords.
+
 ## Features
 
 - Upload a PDF or DOCX resume
