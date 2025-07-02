@@ -12,7 +12,10 @@ npm install
 node server.js
 ```
 
-Then open `http://localhost:3000` in your browser.
+Then open `http://localhost:3000` in your browser. Click the **Resume Optimizer**
+button to open the widget. After uploading a resume and job description, the UI
+displays before/after scores with progress bars and lists missing keywords. You
+can download a PDF containing the suggested improvements.
 
 ### Quick preview via cURL
 

@@ -7,6 +7,8 @@ const beforeEl = document.getElementById('beforeScore');
 const afterEl = document.getElementById('afterScore');
 const missingEl = document.getElementById('missing');
 const downloadLink = document.getElementById('downloadLink');
+const beforeBar = document.getElementById('beforeBar');
+const afterBar = document.getElementById('afterBar');
 
 openBtn.onclick = () => (modal.style.display = 'block');
 closeBtn.onclick = () => (modal.style.display = 'none');
@@ -28,7 +30,15 @@ form.addEventListener('submit', async (e) => {
   const data = await res.json();
   beforeEl.textContent = data.beforeScore;
   afterEl.textContent = data.afterScore;
-  missingEl.textContent = data.missing.join(', ');
+  beforeBar.style.width = data.beforeScore + '%';
+  afterBar.style.width = data.afterScore + '%';
+  missingEl.innerHTML = '';
+  data.missing.forEach((word) => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = word;
+    missingEl.appendChild(span);
+  });
   const params = new URLSearchParams({
     text: data.optimizedText,
     missing: data.missing.join(',')

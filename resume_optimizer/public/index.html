@@ -21,9 +21,18 @@
         <button type="submit">Analyze</button>
       </form>
       <div id="result" class="hidden">
-        <p>Before Score: <span id="beforeScore"></span></p>
-        <p>After Score: <span id="afterScore"></span></p>
-        <p>Missing Keywords: <span id="missing"></span></p>
+        <div class="score">
+          <p>Before Score: <span id="beforeScore"></span></p>
+          <div class="progress"><div id="beforeBar" class="bar"></div></div>
+        </div>
+        <div class="score">
+          <p>After Score: <span id="afterScore"></span></p>
+          <div class="progress"><div id="afterBar" class="bar"></div></div>
+        </div>
+        <div>
+          <p>Missing Keywords:</p>
+          <div id="missing" class="tags"></div>
+        </div>
         <a id="downloadLink" href="#" download="optimized.pdf">Download Optimized Resume</a>
       </div>
     </div>
